@@ -1,21 +1,37 @@
-import React, { Component, Fragment } from 'react';
-import "./App.css"
+import React, { Component } from 'react';
+import styled from "styled-components"
 
 class App extends Component {
   render() {
     return (
-      <Fragment>
-        <Button />
-        <Button danger/>
-      </Fragment>
+      <Container>
+        <Button>Hello!</Button>
+        <Button danger>Hello!</Button>
+      </Container>
     );
   }
 }
 
-const Button = ({danger}) => {
-  return (
-    <button className={danger ? "button button__danger" : "button button__success"}>hello!</button>
-  )  
-}
+const Container = styled.div`
+  height: 100hv;
+  width: 100%;
+  background-color: pink;
+`
+
+const Button = styled.button`
+  border-radius: 50px;
+  padding: 5px;
+  min-width: 120px;
+  color: white;
+  font-weight: 600;
+  -webkit-appearance: none;
+  cursor: pointer;
+  &:active,
+  &:focus {
+    outline: none;
+  }
+  background-color: ${props => (props.danger ? "#e74c3c" : "#2ecc71")}
+`
+
 
 export default App;
