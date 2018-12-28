@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import styled from "styled-components"
+import styled, { createGlobalStyle } from "styled-components";
+
+createGlobalStyle`
+  body{
+    padding:0;
+    margin:0;
+  }
+`;
 
 class App extends Component {
   render() {
@@ -7,16 +14,17 @@ class App extends Component {
       <Container>
         <Button>Hello!</Button>
         <Button danger>Hello!</Button>
+        <Anchor as="a" href="http://google.com">Hello!</Anchor>
       </Container>
     );
   }
 }
 
 const Container = styled.div`
-  height: 100hv;
+  height: 100vh;
   width: 100%;
   background-color: pink;
-`
+`;
 
 const Button = styled.button`
   border-radius: 50px;
@@ -31,7 +39,10 @@ const Button = styled.button`
     outline: none;
   }
   background-color: ${props => (props.danger ? "#e74c3c" : "#2ecc71")}
-`
+`;
 
+const Anchor = styled(Button)`
+  text-decoration:none;
+`;
 
 export default App;
